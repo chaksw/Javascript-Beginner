@@ -33,7 +33,7 @@ JavaScirpt 多种代码范式，一般的范式分为：
 JavaScript 中几乎所有的东西（数组，函数）都是对象（Object)，(字符串，数字不是), 而对象的创建是通过原型继承（prototype-inheritance)实现的, 原型中包含了对象可调用的方法
 
 <div align="center">
-<img src="https://github.com/chaksw/Javascript-Beginner/blob/main/imgs/Prototype-base.png?raw=true" width=70%>
+<img src="https://github.com/chaksw/Javascript-Beginner/blob/main/imgs/Prototype-base.png?raw=true" width=80%>
 </div>
 
 ## 3. First-Class function
@@ -41,7 +41,7 @@ JavaScript 中几乎所有的东西（数组，函数）都是对象（Object)�
 函数在 JavaScript 中被视为常规变量，也意味着它们可以被当作另一个函数函数的输入参数，也可以作为函数的返回值
 
 <div align="center">
-<img src=https://github.com/chaksw/Javascript-Beginner/blob/main/imgs/first-class-fcuntion.png?raw=true" width=50%>
+<img src=https://github.com/chaksw/Javascript-Beginner/blob/main/imgs/first-class-fcuntion.png?raw=true" width=80%>
 </div>
 
 ## 4. Dynamic
