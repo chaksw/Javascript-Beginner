@@ -22,7 +22,7 @@ function calcAge(birthYear) {
 		// console.log(str); error, str is defined in block scope and can not be access outside the block
 		// millenial is define in block scope, but using 'var' to define, so it's accessable outside the block scope
 		console.log(millenial);
-		// error, functio definition is also not access outside the block
+		// error, function definition is also not access outside the block
 		// add(2, 3);
 		console.log(output);
 	}
