@@ -1,5 +1,5 @@
 "use strict";
-/* // 1. Execution context: variable environment and scope chain
+// 1. Execution context: variable environment and scope chain
 function calcAge(birthYear) {
 	const age = 2037 - birthYear;
 
@@ -106,7 +106,7 @@ const f = jonas.calcAge;
 // f(); // this regular fucntion called, this keyword is undefined
  */
 
-/* // Regular function vs. arrow function
+// Regular function vs. arrow function
 // var firstName = "Metilda";
 
 const jonas = {
@@ -153,7 +153,7 @@ var addArrow = (a, b) => {
 	console.log(arguments);
 	return a + b;
 };
- */
+
 // addArrow(2, 3, 5, 6); //Error: arguments is undefined
 
 // PRIMITIVES vs. OBJECTS (Primitive vs. reference types)

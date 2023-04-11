@@ -104,7 +104,7 @@ let parent = null;
 
 6. `BigInt` (ES 2020): Larger integers than the Number type can hold
 
-## Other 2 ways to declare variable
+## Other 2 ways to declare variable: `const`, `var`
 
 1. use key word `const` to declare constant, any constant declared must have value assigned when we define them and could not be changed in anytime and anycase in the future.
 
@@ -112,7 +112,18 @@ let parent = null;
 const age2 = 40;
 ```
 
-2. se `var` to define variable, it seems like using `let`, but they have many differences simply saying is that, `let` is block scoop, and `var` is function scoop
+2. set `var` to define variable, it seems like using `let`, but they have different scope chain, `let` is block scoop, and `var` is function scoop
+
+NOTE:
+
+-   当 `var` 变量在函数外部声明时，作用域是全局的。这意味着在函数体外用 `var` 声明的任何变量都可以在整个窗口中使用。
+-   `var` 在函数中声明时，它的作用域是在函数体内。这意味着它只能在该函数中被访问
+-   `var` 变量可以重新声明和更新, 并不会导致出错， 但 `let` 定义后只能更新不能重新声明， `const` 定义后不能更新或者重新声明
+
+```js
+var greeter = "hey hi";
+var greeter = "say Hello instead";
+```
 
 ```js
 var job = "programmer";
@@ -137,7 +148,7 @@ x--;
 console.log(ageJonas > ageSarah); // >, <, >=, <=
 ```
 
-### Strings and Template Literals
+## Strings and Template Literals
 
 ```js
 const firstName = "Jonas";
@@ -151,7 +162,7 @@ const jonasNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
 console.log(jonasNew);
 ```
 
-### Type conversion `Number()`, `String()`
+## Type conversion `Number()`, `String()`
 
 use `Number()` to convert string
 
@@ -201,7 +212,7 @@ console.log(`23` * `2`);
 console.log(`23` / `2`);
 ```
 
-#### Exmaple
+### Exmaple
 
 ```js
 let n = `1` + 1; // plus cause type coercion to convert number to string, so the result is '11';
@@ -211,7 +222,7 @@ console.log(2 + 3 + 4 + `5`); // 95
 console.log(`10` - 2 - `3` - `4` + `5`); // 15
 ```
 
-### Truthy and Falsy values
+## Truthy and Falsy values
 
 Five **falsy** value in javascript: `0`, `''`, `undefined`, `null`, `NaN`
 
@@ -229,7 +240,7 @@ console.log(Boolean(NaN)); // invalid number
 console.log(Boolean({})); // return true
 ```
 
-#### Example
+### Example
 
 ```js
 const money = 0;
@@ -249,7 +260,7 @@ if (height) {
 }
 ```
 
-### Equality Operator `===`, `==`
+## Equality Operator `===`, `==`
 
 `===` equality operator is a strict equality operator, and it do not do the type coercio, which means it's will compare value and data type
 
@@ -274,7 +285,7 @@ if ("18" === 18) {
 }
 ```
 
-### A MessageBox that accept content (string) from user
+## A MessageBox that accept content (string) from user
 
 ```js
 const favourite = Number(prompt("What's your favourite number ?"));
@@ -293,7 +304,7 @@ if (favourite !== 23) {
 }
 ```
 
-### Boolean Logic `&&`, `||`, `!`
+## Boolean Logic `&&`, `||`, `!`
 
 ```js
 const hasDriveLicense = true;
@@ -333,17 +344,17 @@ if (!(age >= 20)) {
 }
 ```
 
-### `use strict`
+## `use strict`
 
 During development, we need to use the uptodate Google Chrome to ensure our code could be used in the latest javascript standard. <br>
 After developpment, to ensure our development could be used in any versioin of browser we use Babel to transpile and polyfill code (converting back to ES5 to ensure browser compatibility for all users)<br>
 Some word (variable name) is reserved, in strict mode, defining them will cause `syntaxError` but without declaration of 'use strict', this kind of error will not show
 
-### Function
+## Function
 
 In using function declaration, function could be called before its'definition, but we could not called the function expresiion before defining it.
 
-#### function declaration
+### Function declaration
 
 ```js
 function logger() {
@@ -375,7 +386,7 @@ const age1 = calcAge1(1991);
 console.log(age1);
 ```
 
-#### Function expression (Anonymity function)
+### Function expression (Anonymity function)
 
 Anonymity function, also called function expression
 
@@ -388,7 +399,7 @@ const age2 = calcAge2(1991);
 console.log(age1, age2);
 ```
 
-#### Arrow function
+### Arrow function
 
 Arrow function, it's a function expression, the return value is implicit in this function, `birthYear` is input parameter, and the return value is implicit (2037 - birthYear)
 
@@ -409,7 +420,7 @@ const yearUntilRetirement = (birthYear) => {
 console.log(yearUntilRetirement(1991));
 ```
 
--   Arrow function with multiple parameter
+#### Arrow function with multiple parameter
 
 ```js
 const yearUntilRetirement = (birthYear, firstName) => {
@@ -422,7 +433,7 @@ console.log(yearUntilRetirement(1991, "Jonas"));
 console.log(yearUntilRetirement(1980, "Bob")); */
 ```
 
-#### Functions calling other functions
+### Functions calling other functions
 
 ```js
 function cutFruitPieces(fruit) {
@@ -439,9 +450,9 @@ function fruitProcessor(apples, oranges) {
 console.log(fruitProcessor(2, 3)); */
 ```
 
-### Array
+## Array
 
-1. Way1 to create array
+### Way 1 to create array
 
 ```js
 let friends = ["Michael", "Steven", "Peter"];
@@ -463,8 +474,9 @@ friends = ["Bob", "Alice"];
 console.log(friends); //
 ```
 
-2. Way2 to create array
-   An array can contain any data type
+### Way 2 to create array
+
+An array can contain any data type
 
 ```js
 const years = new Array(1991, 1984, 2008, 2020);
@@ -477,7 +489,7 @@ const jonas = [firstName, "Schmedtmann", 2037 - 1991, "teacher", friends];
 console.log(jonas);
 ```
 
-#### Basic Array Operations (Methods)
+### Basic Array Operations (Methods)
 
 1. Add elements `push`
 
@@ -510,7 +522,7 @@ console.log(friends, shifted);
 console.log(friends.indexOf("Michael"));
 ```
 
-1. `includes`
+4. `includes`
 
 Verify if the element is in the array and return the boolean
 
@@ -527,7 +539,7 @@ if (friends.includes("Steven")) {
 }
 ```
 
-### Object
+## Object
 
 Object is a **key-value** pair
 
@@ -621,7 +633,7 @@ jonas.getSummary();
 // console.log(jonas["calcAge"]());
 ```
 
-### Loop iteration
+## Loop iteration
 
 ```js
 // console.log("lifting weights, repetition 1 🏋️‍♀️");
@@ -639,7 +651,7 @@ for (let rep = 1; rep <= 10; rep++) {
 }
 ```
 
-#### Example
+### Example
 
 ```js
 const jonas = ["Jonas", "Schmedtmann", 1991, "Teacher", ["Micheal", "Peter", "Steven"], false];
@@ -663,7 +675,7 @@ for (let i = 0; i < years.length; i++) {
 console.log(ages);
 ```
 
-### `continue` and `break`
+## `continue` and `break`
 
 ```js
 console.log("--- ONLY STRING ---");
@@ -682,7 +694,7 @@ for (let i = 0; i < jonas.length; i++) {
 }
 ```
 
-### Loop backward and loop in loop
+## Loop backward and loop in loop
 
 ```js
 const jonas = ["Jonas", "Schmedtmann", 1991, "Teacher", ["Micheal", "Peter", "Steven"], false];
@@ -704,7 +716,7 @@ for (let exercise = 1; exercise < 4; exercise++) {
 }
 ```
 
-### `while` Loop
+## `while` Loop
 
 ```js
 let rep = 1;
@@ -721,4 +733,283 @@ while (dice !== 6) {
         console.log(`You rolled a ${dice}, loop is about to end`);
     }
 }
+```
+
+## Regular function vs. Arrow function in using `this`
+
+While defined a regular function in an object, `this` inside the function won't point to any object as if a regular function defined in global. So to use `this` as object inside an object function, a better solution is to define an Arrow function.
+NOTE: Arrow function don't have `arguments` key word, `arguments` 是一个类数组的对象, 其表示了函数执行时传入函数的所有参数
+
+```js
+const jonas = {
+    firstName: "Jonas",
+    year: 1991,
+    calcAge: function () {
+        console.log(this); // here 'this' point to the object which calling this method
+        console.log(2037 - this.year);
+        // even it's defined in a object method, here this regular function is considered as an normal regular function, so this won't point to any object as if a regular function defined in global
+        const isMellenial = function () {
+            // Here this point to nothing
+            console.log(this.year >= 1981 && this.year <= 1996);
+        };
+        // Solution 1, use another variable to save this
+        // But if we use another variable to save this, and use this variable in a regular function, it will work.
+        const self = this;
+        const isMellenial = function () {
+            console.log(self.year >= 1981 && self.year <= 1996);
+        };
+        // Solution 2, use arrow function
+        // But a better solution in ES6 is to use arrow function
+        const isMellenial = () => {
+            console.log(this.year >= 1981 && this.year <= 1996);
+        };
+        isMellenial();
+    },
+    // greet: () => console.log(`Hey ${this.firstName}`), // in arrow function, 'this' keyword always point to the object surrarounded
+    greet: function () {
+        console.log(`Hey ${this.firstName}`);
+    },
+};
+jonas.greet();
+jonas.calcAge();
+
+// arguments keyword
+const addExpr = function (a, b) {
+    console.log(arguments);
+    return a + b;
+};
+addExpr(2, 3);
+addExpr(2, 5, 8, 10);
+
+// arrow function does not have 'arguments' keyword
+var addArrow = (a, b) => {
+    console.log(arguments);
+    return a + b;
+};
+```
+
+## PRIMITIVES vs. OBJECTS (Primitive vs. reference types)
+
+Primitive data is `Number` | `String` | `Boolean` | `Undefined` | `Null` | `Symbol` | `BigInt`,they are stored in CALL Stack(调用栈)<br>
+Object means Object `literal` | `Arrays` | `Functions` and etc are stored in HEAP(堆)<br>
+In the eample below, both `age`/`oldAge`/`me`/`friend` are primitive data that stroed in CALL STACK, however for `me` and `friend`, as they are actualy stored an object data that should stored in HEAD, So `me` and `friend` this two primitive data are actually stored the same address of object data in HEAD (which means they point to the same object), So when we changed `age` value in `me` by using `friend.age`, it will havs the same functionality of `me.age`, because they stored the same address.<br>
+That is also why we can change the attibute value of object that defiend with `const`, as we are actually changing the value that stored in HEAD , rather than the value stored with const (it's an address)
+
+```js
+// Primitive type
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+// Reference type
+const me = {
+    name: "Jonas",
+    age: 30,
+};
+
+const friend = me;
+friend.age = 27;
+console.log("Me:", me);
+console.log("Friend:", friend);
+
+// Practice PRIMITIVES vs. OBJECTS (Primitive vs. reference types)
+// Primitive type
+let lastName = "Williams";
+let oldLastName = lastName;
+lastName = "Davis";
+console.log(lastName, oldLastName);
+
+// Reference type
+const jessica = {
+    firstName: "Jessica",
+    lastName: "Williams",
+    age: 27,
+};
+
+const marriedJessica = jessica;
+marriedJessica.lastName = "Davis";
+console.log("Before marriage:", jessica);
+console.log("After marriage:", marriedJessica);
+
+// marriedJessica = {}; // since it's an const any already assigned, it can not be changed any longer
+
+// A way to copy an object and change it's attribute without changing the original one
+// Copying Object -> using Ojbect.assign({}, Object)
+const jessica2 = {
+    firstName: "Jessica",
+    lastName: "Williams",
+    age: 27,
+    family: ["Alice", "Bob"],
+};
+// Object.assgin() has a problem which is that when the object to be copied has an inner object, the inner object can not be changed in the return object, which means, Object.assign() only create a shallow copy, that means they only copy property in first level
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.family.push("Mary"); // this part won't have difference
+jessicaCopy.family.push("John"); // this part won't have difference
+jessicaCopy.lastName = "Davis";
+console.log("Before marriage:", jessica2);
+console.log("After marriage:", jessicaCopy);
+```
+
+## Data Structures Operators
+
+### Using element name of object as parameters in function
+
+when using an object as parameter to call this function, it will **destruct** the object first to get the element's value, and then pass this values to function to execute logic.<br>
+In that case, we do not need to worry about the order of element in object, also we can set the default value for this parameter, so that we can simply pass the parameter we want into this function, then the rest parameter will remain default
+
+#### Example
+
+```js
+// Data needed for first part of the section
+const restaurant = {
+    name: "Classico Italiano",
+    location: "Via Angelo Tavanti 23, Firenze, Italy",
+    categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
+    starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
+    mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+    openingHours: {
+        thu: {
+            open: 12,
+            close: 22,
+        },
+        fri: {
+            open: 11,
+            close: 23,
+        },
+        sat: {
+            open: 0, // Open 24 hours
+            close: 24,
+        },
+    },
+
+    order: function (starterIndex, mainIndex) {
+        return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+    },
+    // execute destructuring in function
+    // using element name of object as parameters in function, when using an object as parameter to call this function, it will destruct the object first to get the element's value, and then pass this values to function to execute logic
+    // In that case, we do not need to worry about the order of element in object
+    // Also we can set the default value for this parameter, so that we can simply pass the parameter we want into this function, then the rest parameter will remain default
+    orderDelivery: function ({ starterIndex = 1, mainIndex = 0, time = "20:00", address }) {
+        console.log(
+            `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time} `
+        );
+    },
+
+    orderPasta: function (ing1, ing2, ing3) {
+        console.log(`Here is your delicious pasta with ${ing1},${ing2},${ing2}`);
+    },
+
+    orderPizza: function (mainIngredient, ...otherIngredients) {
+        console.log(mainIngredient);
+        console.log(otherIngredients);
+    },
+};
+```
+
+## Desctructuring
+
+### Destructuring Arrays
+
+```js
+const arr = [2, 3, 4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+
+/// Save array value in destructuring way
+const [x, y, z] = arr;
+
+// If we want only get the first and third valu of categories
+let [main, , seconary] = restaurant.categories;
+console.log(main, seconary);
+
+// Swtich value in a normal way
+const temp = main;
+main = seconary;
+seconary = temp;
+console.log(main, seconary);
+
+// Swtich with destructuring
+[main, seconary] = [seconary, main];
+console.log(main, seconary);
+// return multiple value from function using destructuring
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log([starter, mainCourse]);
+
+// nested destructuring
+const nested = [2, 4, [5, 6]];
+// Get inner array's value using destructuring
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+
+// Set default value
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
+
+const order = {
+    time: "22:30",
+    address: "Via del Sole, 21",
+    mainIndex: 2,
+    starterIndex: 2,
+};
+```
+
+### Desturcturing Objects
+
+We can simply use the object's element as **left value** to destructuring the elements in the obejct.
+
+```js
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+```
+
+If we want the variable name different with the property name of object get the original property name and using `:` to separate the variable name
+
+```js
+const { name: restaurantName, openingHours: Hours, categories: tags } = restaurant;
+console.log(restaurantName, Hours, tags);
+```
+
+**Default Value** if the property existed in object, the default value will be replaced by property value, otherwise like menu below, new variable will remain default value, if we didn't define default value, the new variable will remain undefined
+
+```js
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// Mutating (改变) variales
+let a = 111;
+let b = 999;
+// Mutating a and b with obj
+const obj = { a: 23, b: 7, c: 14 };
+// we need add a parenthseis
+({ a, b } = obj);
+console.log(a, b); // a = 23, b = 7
+```
+
+#### Nested(内嵌) Object
+
+Destructuring `openingHours` first to find the `fri` element, then destructuring `fri` object to get the `open` and `close` element, and finally reassign (or **rename**) as `o` and `c`
+
+```js
+const {
+    fri: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
+```
+
+#### Use Object as parameter in object function
+
+```js
+restaurant.orderDelivery(order);
+
+// restaurant.orderDelivery({
+// 	time: "22:30",
+// 	address: "Via del Sole, 21",
+// 	mainIndex: 2,
+// 	starterIndex: 2,
+// });
+restaurant.orderDelivery({ address: '"Via del Sole, 21"', starterIndex: 1 });
 ```

@@ -59,7 +59,6 @@ const restaurant = {
 
 // 1. Desctructuring
 
-/* 
 /////////////////////////////////////
 // Destructuring Arrays
 const arr = [2, 3, 4];
@@ -95,7 +94,7 @@ console.log(i, j, k);
 
 // Set default value
 const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r); 
+console.log(p, q, r);
 
 const order = {
 	time: "22:30",
@@ -103,7 +102,6 @@ const order = {
 	mainIndex: 2,
 	starterIndex: 2,
 };
-*/
 
 /* 
 ////////////////////////
